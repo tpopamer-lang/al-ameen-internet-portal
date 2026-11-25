@@ -41,7 +41,7 @@ export function Hero() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         {!heroBgError && (
           <img
-            src="/src/assets/images/telecom_hero_backdrop_1795295004171.jpg"
+            src=`${import.meta.env.BASE_URL}src/assets/images/telecom_hero_backdrop_1795295004171.jpg`
             alt=""
             referrerPolicy="no-referrer"
             onError={() => setHeroBgError(true)}
