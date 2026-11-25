@@ -668,7 +668,7 @@ export function HomePage() {
                 <div className="relative h-full min-h-[320px] rounded-2xl overflow-hidden border border-[#E2E8F0] bg-[#030A14]">
                   {!infraImgError ? (
                     <img
-                      src="/src/assets/images/telecom_infra_studio_1795295003563.jpg"
+                      src=`${import.meta.env.BASE_URL}src/assets/images/telecom_infra_studio_1795295003563.jpg`
                       alt="تجهيزات البنية اللاسلكية وأجهزة الشبكة في بوابة الأمين للإنترنت"
                       loading="lazy"
                       referrerPolicy="no-referrer"
