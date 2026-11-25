@@ -6,12 +6,13 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // GitHub Pages serves this project from /<repository-name>/, not from /.
+    base: '/al-ameen-internet-portal/',
     plugins: [
       react(),
       tailwindcss(),
       // Copies src/assets into dist/ so root-relative URLs like
-      // "/src/assets/images/..." (e.g. generate_image output) still resolve
-      // in production builds. Do not remove.
+      // "/src/assets/images/..." still resolve in production builds.
       {
         name: 'copy-unbundled-src-assets',
         apply: 'build',

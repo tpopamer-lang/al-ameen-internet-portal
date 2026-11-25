@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>جارٍ فتح بوابة الأمين...</title>
+    <script>
+      (function () {
+        var base = '/al-ameen-internet-portal';
+        var path = window.location.pathname;
+        var route = path.indexOf(base) === 0 ? path.slice(base.length) || '/' : '/';
+        var params = new URLSearchParams(window.location.search);
+        params.set('p', route);
+        window.location.replace(base + '/?' + params.toString());
+      })();
+    </script>
+  </head>
+  <body>
+    <p>جارٍ تحويلك إلى بوابة الأمين للإنترنت...</p>
+  </body>
+</html>
