@@ -22,6 +22,7 @@ import {
   type AssistantActionId,
 } from '../config/assistantActions';
 import type { AppRoutePath } from '../config/routes';
+import { apiEndpoint } from '../config/api';
 import { useRouter } from '../context/RouterContext';
 import { useVoiceRequest } from '../context/VoiceRequestContext';
 
@@ -282,7 +283,7 @@ export function AlAmeenAssistant() {
     const timeoutId = window.setTimeout(() => controller.abort(), 40_000);
 
     try {
-      const response = await fetch('/api/assistant/chat', {
+      const response = await fetch(apiEndpoint('/api/assistant/chat'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
