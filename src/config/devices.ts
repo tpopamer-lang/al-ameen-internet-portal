@@ -19,7 +19,7 @@ export const DEVICES: DeviceItem[] = [
     type: 'راوتر لاسلكي',
     description:
       'يدعم حسب الإصدار سرعات لاسلكية تبدأ من 300 ميجابت/ثانية وتصل إلى فئات أعلى، مع هوائيات خارجية ومنافذ WAN وLAN.',
-    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-01.jpg',
+    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-01.jpg`,
     imageAlt: 'TP-Link راوتر لاسلكي',
     formCategory: 'أجهزة الراوتر والمودم (A)',
     formRouterValue: 'A1 – ONE (TP-Link)',
@@ -31,7 +31,7 @@ export const DEVICES: DeviceItem[] = [
     type: 'راوتر لاسلكي',
     description:
       'فئة مناسبة للاستخدام المنزلي، وتتوفر بإصدارات تدعم سرعة 300 ميجابت/ثانية وهوائيات خارجية وأوضاع تشغيل متعددة.`,
-    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-02.jpg',
+    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-02.jpg`,
     imageAlt: 'TOTOLINK راوتر لاسلكي',
     formCategory: 'أجهزة الراوتر والمودم (A)',
     formRouterValue: 'A2 – TWO (راوتر لاسلكي)',
@@ -43,7 +43,7 @@ export const DEVICES: DeviceItem[] = [
     type: 'راوتر / مودم',
     description:
       'أجهزة لتوزيع الإنترنت داخل المنزل أو المكتب، مع منافذ إيثرنت وهوائيات خارجية؛ وتختلف السرعة والمنافذ حسب الإصدار.`,
-    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-03.jpg',
+    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-03.jpg`,
     imageAlt: 'KT راوتر مودم',
     formCategory: 'أجهزة الراوتر والمودم (A)',
     formRouterValue: 'A3 – THREE (مودم KT)',
@@ -55,7 +55,7 @@ export const DEVICES: DeviceItem[] = [
     type: 'راوتر / مودم',
     description:
       'حل عملي لتوزيع الاتصال سلكيًا ولاسلكيًا، مع منافذ شبكة وخصائص حماية وإدارة تختلف بحسب الطراز.`,
-    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-04.jpg',
+    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-04.jpg`,
     imageAlt: 'LG راوتر مودم',
     formCategory: 'أجهزة الراوتر والمودم (A)',
     formRouterValue: 'A4 – FOUR (مودم LG)',
@@ -67,7 +67,7 @@ export const DEVICES: DeviceItem[] = [
     type: 'جهاز ربط لاسلكي خارجي',
     description:
       'يعمل على نطاق 2.4 جيجاهرتز، ويُستخدم لربط الشبكات لاسلكيًا، ويدعم التغذية عبر كابل الشبكة PoE.`,
-    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-05.jpg',
+    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-05.jpg`,
     imageAlt: 'Ubiquiti NanoStation M2 جهاز ربط لاسلكي خارجي',
     formCategory: 'أجهزة الربط واللاقِطات (B)',
     formLinkValue: 'B1 – NanoStation',
@@ -79,7 +79,7 @@ export const DEVICES: DeviceItem[] = [
     type: 'لاقط / جهاز ربط بعيد المدى',
     description:
       'هوائي اتجاهي بطبق عاكس لتركيز الإشارة وربط المواقع البعيدة، ويعمل غالبًا على نطاق 5 جيجاهرتز بحسب الإصدار.`,
-    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-06.jpg',
+    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-06.jpg`,
     imageAlt: 'Ubiquiti PowerBeam لاقط بعيد المدى',
     formCategory: 'أجهزة الربط واللاقِطات (B)',
     formLinkValue: 'B2 – PowerBeam',
@@ -91,7 +91,7 @@ export const DEVICES: DeviceItem[] = [
     type: 'لاقط لاسلكي خارجي',
     description:
       'يعمل على نطاق 5 جيجاهرتز، وهوائي اتجاهي عالي الكسب للربط بين النقاط، مع دعم PoE ونظام airOS.`,
-    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-07.jpg',
+    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-07.jpg`,
     imageAlt: 'Ubiquiti LiteBeam M5 لاقط لاسلكي خارجي',
     formCategory: 'أجهزة الربط واللاقِطات (B)',
     formLinkValue: 'B3 – LiteBeam',
@@ -103,7 +103,7 @@ export const DEVICES: DeviceItem[] = [
     type: 'جهاز ربط لاسلكي خارجي',
     description:
       'يعمل على نطاق 5 جيجاهرتز، بهوائي مدمج ومنافذ إيثرنت مع دعم PoE، ويُستخدم للربط بين النقاط.`,
-    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-08.jpg',
+    imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-08.jpg`,
     imageAlt: 'Ubiquiti NanoStation M5 جهاز ربط لاسلكي خارجي',
     formCategory: 'أجهزة الربط واللاقِطات (B)',
     formLinkValue: 'B4 – NanoStation M5`,
