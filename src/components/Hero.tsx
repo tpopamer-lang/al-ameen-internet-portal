@@ -10,6 +10,7 @@ import {
   Wifi,
 } from 'lucide-react';
 import { DEVICES } from '../config/devices';
+import heroBackdrop from '../assets/images/telecom_hero_backdrop_1795295004171.jpg';
 import {
   INTERNET_CARDS,
   MONTHLY_PACKAGES,
@@ -41,7 +42,7 @@ export function Hero() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         {!heroBgError && (
           <img
-            src={`${import.meta.env.BASE_URL}assets/images/telecom_hero_backdrop_1795295004171.jpg`}
+            src={heroBackdrop}
             alt=""
             referrerPolicy="no-referrer"
             onError={() => setHeroBgError(true)}
