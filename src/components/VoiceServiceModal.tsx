@@ -21,6 +21,7 @@ import {
   type VoiceServiceDraft,
 } from '../config/forms';
 import { useVoiceRequest } from '../context/VoiceRequestContext';
+import { apiEndpoint } from '../config/api';
 
 interface VoiceTurn {
   id: string;
@@ -272,7 +273,7 @@ export function VoiceServiceModal() {
     async (turnId: string, text: string) => {
       if (!voiceOutputEnabled) return;
       try {
-        const res = await fetch('/api/voice/tts', {
+        const res = await fetch(apiEndpoint('/api/voice/tts'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ text }),
@@ -568,7 +569,7 @@ export function VoiceServiceModal() {
 
         try {
           const audioBase64 = await blobToBase64(blob);
-          const response = await fetch('/api/voice/transcribe', {
+          const response = await fetch(apiEndpoint('/api/voice/transcribe'), {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             signal: controller.signal,
@@ -735,7 +736,7 @@ export function VoiceServiceModal() {
     const analyzeTimeout = window.setTimeout(() => controller.abort(), 40_000);
 
     try {
-      const response = await fetch('/api/voice/analyze', {
+      const response = await fetch(apiEndpoint('/api/voice/analyze'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         signal: controller.signal,
