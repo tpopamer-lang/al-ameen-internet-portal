@@ -134,6 +134,27 @@ async function startServer() {
   const app = express();
   app.set('trust proxy', 1);
 
+  const allowedOrigins = new Set(
+    (process.env.ALLOWED_ORIGINS || 'https://tpopamer-lang.github.io,http://localhost:5173')
+      .split(',')
+      .map((origin) => origin.trim())
+      .filter(Boolean)
+  );
+
+  app.use((req: Request, res: Response, next: NextFunction) => {
+    const origin = req.headers.origin;
+    if (origin && allowedOrigins.has(origin)) {
+      res.setHeader('Access-Control-Allow-Origin', origin);
+      res.setHeader('Vary', 'Origin');
+      res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+      res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+    }
+    if (req.method === 'OPTIONS') {
+      return res.sendStatus(204);
+    }
+    next();
+  });
+
   app.use((_req: Request, res: Response, next: NextFunction) => {
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
@@ -421,7 +442,7 @@ async function startServer() {
   } else {
     const distDir = path.resolve(__dirname, 'dist');
     app.use(express.static(distDir));
-    app.get('/{*splat}', (_req: Request, res: Response) => {
+    app.get('*', (_req: Request, res: Response) => {
       const indexPath = path.join(distDir, 'index.html');
       if (fs.existsSync(indexPath)) {
         res.sendFile(indexPath);
