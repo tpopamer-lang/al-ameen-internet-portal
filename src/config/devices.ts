@@ -30,7 +30,7 @@ export const DEVICES: DeviceItem[] = [
     name: 'TOTOLINK',
     type: 'راوتر لاسلكي',
     description:
-      'فئة مناسبة للاستخدام المنزلي، وتتوفر بإصدارات تدعم سرعة 300 ميجابت/ثانية وهوائيات خارجية وأوضاع تشغيل متعددة.`,
+      'فئة مناسبة للاستخدام المنزلي، وتتوفر بإصدارات تدعم سرعة 300 ميجابت/ثانية وهوائيات خارجية وأوضاع تشغيل متعددة.',
     imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-02.jpg`,
     imageAlt: 'TOTOLINK راوتر لاسلكي',
     formCategory: 'أجهزة الراوتر والمودم (A)',
@@ -42,7 +42,7 @@ export const DEVICES: DeviceItem[] = [
     name: 'KT',
     type: 'راوتر / مودم',
     description:
-      'أجهزة لتوزيع الإنترنت داخل المنزل أو المكتب، مع منافذ إيثرنت وهوائيات خارجية؛ وتختلف السرعة والمنافذ حسب الإصدار.`,
+      'أجهزة لتوزيع الإنترنت داخل المنزل أو المكتب، مع منافذ إيثرنت وهوائيات خارجية؛ وتختلف السرعة والمنافذ حسب الإصدار.',
     imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-03.jpg`,
     imageAlt: 'KT راوتر مودم',
     formCategory: 'أجهزة الراوتر والمودم (A)',
@@ -54,7 +54,7 @@ export const DEVICES: DeviceItem[] = [
     name: 'LG',
     type: 'راوتر / مودم',
     description:
-      'حل عملي لتوزيع الاتصال سلكيًا ولاسلكيًا، مع منافذ شبكة وخصائص حماية وإدارة تختلف بحسب الطراز.`,
+      'حل عملي لتوزيع الاتصال سلكيًا ولاسلكيًا، مع منافذ شبكة وخصائص حماية وإدارة تختلف بحسب الطراز.',
     imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-04.jpg`,
     imageAlt: 'LG راوتر مودم',
     formCategory: 'أجهزة الراوتر والمودم (A)',
@@ -66,7 +66,7 @@ export const DEVICES: DeviceItem[] = [
     name: 'Ubiquiti NanoStation M2',
     type: 'جهاز ربط لاسلكي خارجي',
     description:
-      'يعمل على نطاق 2.4 جيجاهرتز، ويُستخدم لربط الشبكات لاسلكيًا، ويدعم التغذية عبر كابل الشبكة PoE.`,
+      'يعمل على نطاق 2.4 جيجاهرتز، ويُستخدم لربط الشبكات لاسلكيًا، ويدعم التغذية عبر كابل الشبكة PoE.',
     imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-05.jpg`,
     imageAlt: 'Ubiquiti NanoStation M2 جهاز ربط لاسلكي خارجي',
     formCategory: 'أجهزة الربط واللاقِطات (B)',
@@ -78,7 +78,7 @@ export const DEVICES: DeviceItem[] = [
     name: 'Ubiquiti PowerBeam',
     type: 'لاقط / جهاز ربط بعيد المدى',
     description:
-      'هوائي اتجاهي بطبق عاكس لتركيز الإشارة وربط المواقع البعيدة، ويعمل غالبًا على نطاق 5 جيجاهرتز بحسب الإصدار.`,
+      'هوائي اتجاهي بطبق عاكس لتركيز الإشارة وربط المواقع البعيدة، ويعمل غالبًا على نطاق 5 جيجاهرتز بحسب الإصدار.',
     imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-06.jpg`,
     imageAlt: 'Ubiquiti PowerBeam لاقط بعيد المدى',
     formCategory: 'أجهزة الربط واللاقِطات (B)',
@@ -90,7 +90,7 @@ export const DEVICES: DeviceItem[] = [
     name: 'Ubiquiti LiteBeam M5',
     type: 'لاقط لاسلكي خارجي',
     description:
-      'يعمل على نطاق 5 جيجاهرتز، وهوائي اتجاهي عالي الكسب للربط بين النقاط، مع دعم PoE ونظام airOS.`,
+      'يعمل على نطاق 5 جيجاهرتز، وهوائي اتجاهي عالي الكسب للربط بين النقاط، مع دعم PoE ونظام airOS.',
     imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-07.jpg`,
     imageAlt: 'Ubiquiti LiteBeam M5 لاقط لاسلكي خارجي',
     formCategory: 'أجهزة الربط واللاقِطات (B)',
@@ -102,11 +102,11 @@ export const DEVICES: DeviceItem[] = [
     name: 'Ubiquiti NanoStation M5',
     type: 'جهاز ربط لاسلكي خارجي',
     description:
-      'يعمل على نطاق 5 جيجاهرتز، بهوائي مدمج ومنافذ إيثرنت مع دعم PoE، ويُستخدم للربط بين النقاط.`,
+      'يعمل على نطاق 5 جيجاهرتز، بهوائي مدمج ومنافذ إيثرنت مع دعم PoE، ويُستخدم للربط بين النقاط.',
     imageSrc: `${import.meta.env.BASE_URL}assets/devices/device-08.jpg`,
     imageAlt: 'Ubiquiti NanoStation M5 جهاز ربط لاسلكي خارجي',
     formCategory: 'أجهزة الربط واللاقِطات (B)',
-    formLinkValue: 'B4 – NanoStation M5`,
+    formLinkValue: 'B4 – NanoStation M5',
   },
 ];
 
