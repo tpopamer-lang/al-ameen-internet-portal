@@ -15,6 +15,7 @@ import {
   Wifi,
 } from 'lucide-react';
 import { DEVICES } from '../config/devices';
+import infraStudioImage from '../assets/images/telecom_infra_studio_1795295003563.jpg';
 import {
   INTERNET_CARDS,
   MONTHLY_PACKAGES,
@@ -668,7 +669,7 @@ export function HomePage() {
                 <div className="relative h-full min-h-[320px] rounded-2xl overflow-hidden border border-[#E2E8F0] bg-[#030A14]">
                   {!infraImgError ? (
                     <img
-                      src={`${import.meta.env.BASE_URL}assets/images/telecom_infra_studio_1795295003563.jpg`}
+                      src={infraStudioImage}
                       alt="تجهيزات البنية اللاسلكية وأجهزة الشبكة في بوابة الأمين للإنترنت"
                       loading="lazy"
                       referrerPolicy="no-referrer"
