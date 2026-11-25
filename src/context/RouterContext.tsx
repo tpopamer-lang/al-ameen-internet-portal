@@ -9,13 +9,35 @@ interface RouterContextValue {
 
 const RouterContext = createContext<RouterContextValue | null>(null);
 
+// Vite replaces BASE_URL at build time. It is "/" locally and
+// "/al-ameen-internet-portal/" on this GitHub Pages deployment.
+const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+function getAppPathname(pathname: string = window.location.pathname): string {
+  if (BASE_PATH && (pathname === BASE_PATH || pathname.startsWith(`${BASE_PATH}/`))) {
+    return pathname.slice(BASE_PATH.length) || '/';
+  }
+  return pathname || '/';
+}
+
+function toAppUrl(pathname: string): string {
+  const normalized = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  return `${BASE_PATH}${normalized}` || '/';
+}
+
+function getInitialRoute(): AppRoutePath {
+  const redirectedPath = new URLSearchParams(window.location.search).get('p');
+  return resolveRoutePath(redirectedPath || getAppPathname());
+}
+
 export function RouterProvider({ children }: { children: React.ReactNode }) {
-  const [currentPath, setCurrentPath] = useState<AppRoutePath>(() =>
-    resolveRoutePath(window.location.pathname)
-  );
-  const [currentSearch, setCurrentSearch] = useState<string>(() =>
-    window.location.search || ''
-  );
+  const [currentPath, setCurrentPath] = useState<AppRoutePath>(getInitialRoute);
+  const [currentSearch, setCurrentSearch] = useState<string>(() => {
+    const params = new URLSearchParams(window.location.search);
+    params.delete('p');
+    const query = params.toString();
+    return query ? `?${query}` : '';
+  });
 
   const syncMeta = useCallback((path: AppRoutePath) => {
     const meta = ROUTE_META[path];
@@ -29,16 +51,22 @@ export function RouterProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    const initialResolved = resolveRoutePath(window.location.pathname);
-    if (initialResolved !== window.location.pathname && window.location.pathname !== '/') {
-      window.history.replaceState({}, '', `${initialResolved}${window.location.search || ''}`);
+    const url = new URL(window.location.href);
+    const redirectedPath = url.searchParams.get('p');
+    if (redirectedPath) url.searchParams.delete('p');
+
+    const initialResolved = resolveRoutePath(redirectedPath || getAppPathname());
+    const canonicalPath = toAppUrl(initialResolved);
+    const nextSearch = url.search;
+    if (window.location.pathname !== canonicalPath || redirectedPath) {
+      window.history.replaceState({}, '', `${canonicalPath}${nextSearch}`);
     }
     syncMeta(initialResolved);
   }, [syncMeta]);
 
   useEffect(() => {
     const handlePopState = () => {
-      const resolved = resolveRoutePath(window.location.pathname);
+      const resolved = resolveRoutePath(getAppPathname());
       setCurrentPath(resolved);
       setCurrentSearch(window.location.search || '');
       syncMeta(resolved);
@@ -52,8 +80,8 @@ export function RouterProvider({ children }: { children: React.ReactNode }) {
       const qIdx = targetPath.indexOf('?');
       const rawPathname = qIdx >= 0 ? targetPath.slice(0, qIdx) : targetPath;
       const rawSearch = qIdx >= 0 ? targetPath.slice(qIdx) : '';
-      const resolved = resolveRoutePath(rawPathname);
-      const nextUrl = `${resolved}${rawSearch}`;
+      const resolved = resolveRoutePath(getAppPathname(rawPathname));
+      const nextUrl = `${toAppUrl(resolved)}${rawSearch}`;
       if (`${window.location.pathname}${window.location.search}` !== nextUrl) {
         window.history.pushState({}, '', nextUrl);
       }
@@ -86,6 +114,10 @@ interface AppLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 
 export function AppLink({ to, onClick, children, ...rest }: AppLinkProps) {
   const { navigate } = useRouter();
+  const queryIndex = to.indexOf('?');
+  const pathname = queryIndex >= 0 ? to.slice(0, queryIndex) : to;
+  const search = queryIndex >= 0 ? to.slice(queryIndex) : '';
+  const href = `${toAppUrl(resolveRoutePath(getAppPathname(pathname)))}${search}`;
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (onClick) onClick(e);
@@ -98,7 +130,7 @@ export function AppLink({ to, onClick, children, ...rest }: AppLinkProps) {
   };
 
   return (
-    <a href={to} onClick={handleClick} {...rest}>
+    <a href={href} onClick={handleClick} {...rest}>
       {children}
     </a>
   );
